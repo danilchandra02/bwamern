@@ -1,13 +1,15 @@
 /**
  * /*!
- * Bootstrap v4.0.0 (https://getbootstrap.com)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
+ * Bootstrap v4.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *
  * @format
  */
 
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap");
+@import "colorVariables";
 @import "functions";
 @import "variables";
 @import "mixins";
@@ -38,10 +40,12 @@
 @import "media";
 @import "list-group";
 @import "close";
+@import "toasts";
 @import "modal";
 @import "tooltip";
 @import "popover";
 @import "carousel";
+@import "spinners";
 @import "utilities";
 @import "print";
 
@@ -51,8 +55,8 @@
 	font-family: "Poppins", sans-serif;
 	color: $primary;
 	&:hover {
-		text-decoration: none;
 		color: $primary;
+		text-decoration: none;
 	}
 }
 
@@ -61,19 +65,21 @@ header {
 	width: 100%;
 	position: relative;
 	margin-bottom: 50px;
+
 	.navbar {
 		height: 80px;
 
-		.navbar-nav {
+		ul.navbar-nav {
 			li.nav-item {
 				&.active {
 					a.nav-link {
 						color: $primary;
+						font-weight: 800;
 					}
 				}
 				a {
 					&.nav-link {
-						letter-spacing: 1.2px;
+						letter-spacing: 1px;
 						color: $gray-900;
 						padding-left: 1rem;
 						padding-right: 1rem;
@@ -104,18 +110,23 @@ section {
 }
 
 .card {
+	&.bordered {
+		border: 1px solid $gray-200;
+	}
+	border-radius: 15px;
+
 	.tag {
 		z-index: 3;
 		font-size: 0.875rem;
 		background-color: $pink;
-		color: $white;
 		padding: 0.25rem 1.25rem;
 		position: absolute;
 		top: 0;
 		right: 0;
+		color: $white;
 		min-height: 30px;
 		border-radius: 0 15px;
-		font-weight: 700;
+		font-weight: 400;
 		span {
 			font-weight: 300;
 		}
@@ -130,7 +141,6 @@ section {
 
 	.meta-wrapper {
 		margin-top: 1rem;
-
 		h5 {
 			font-size: 1.125rem;
 			margin-bottom: 2px;
@@ -144,7 +154,6 @@ section {
 		overflow: hidden;
 		cursor: pointer;
 		height: 100%;
-		border-radius: 15px;
 		&:after {
 			position: absolute;
 			content: "";
@@ -179,11 +188,12 @@ section {
 			bottom: 0;
 			width: 100%;
 			transform: translateY(0);
-			transform: 0.3s transform ease-in-out;
+			transition: 0.3s transform ease-in-out;
 			display: flex;
 			justify-content: flex-end;
 			flex-direction: column;
 		}
+
 		&:hover {
 			.meta-wrapper {
 				transform: translateY(-10px);
@@ -195,5 +205,49 @@ section {
 				transform: scale(1);
 			}
 		}
+	}
+}
+
+.testimonial-hero,
+.testimonial-hero img {
+	width: 365px;
+	height: 500px;
+}
+
+footer {
+	border-top: 1px solid $gray-200;
+	padding-top: 50px;
+
+	.brand-tagline {
+		margin-top: 8px;
+		color: $gray-500;
+		font-weight: 300;
+	}
+
+	.list-group-item {
+		padding: 0.3125rem 0;
+		border: 0;
+		a,
+		span {
+			color: $gray-500;
+			font-weight: 300;
+		}
+		a {
+			@include hover-focus {
+				color: $gray-800;
+			}
+		}
+	}
+	.copyrights {
+		margin: 50px 0;
+		font-weight: 300;
+		color: $gray-500;
+	}
+}
+
+main {
+	p {
+		color: $gray-500;
+		font-weight: 300;
 	}
 }
