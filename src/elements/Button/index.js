@@ -7,6 +7,7 @@ import propTypes from "prop-types"
 export default function Button(props) {
 	const className = [props.className]
 	if (props.isPrimary) className.push("btn-primary")
+	if (props.isLight) className.push("btn-light")
 	if (props.isLarge) className.push("btn-lg")
 	if (props.isSmall) className.push("btn-sm")
 	if (props.isBlock) className.push("btn-block")
@@ -15,6 +16,7 @@ export default function Button(props) {
 	const onClick = () => {
 		if (props.onClick) props.onClick()
 	}
+
 	if (props.isDisabled || props.isLoading) {
 		if (props.isDisabled) className.push("disabled")
 		return (
@@ -22,7 +24,7 @@ export default function Button(props) {
 				{props.isLoading ? (
 					<>
 						<span className="spinner-border spinner-border-sm mx-5"></span>
-						<span className="sr-only">Loading..</span>
+						<span className="sr-only">Loading...</span>
 					</>
 				) : (
 					props.children
@@ -30,6 +32,7 @@ export default function Button(props) {
 			</span>
 		)
 	}
+
 	if (props.type === "link") {
 		if (props.isExternal) {
 			return (
@@ -61,7 +64,6 @@ export default function Button(props) {
 
 	return (
 		<button
-			to={props.href}
 			className={className.join(" ")}
 			style={props.style}
 			onClick={onClick}
@@ -77,8 +79,9 @@ Button.propTypes = {
 	href: propTypes.string,
 	target: propTypes.string,
 	className: propTypes.string,
-	isExternal: propTypes.bool,
 	isPrimary: propTypes.bool,
+	isLight: propTypes.bool,
+	isExternal: propTypes.bool,
 	isDisabled: propTypes.bool,
 	isLoading: propTypes.bool,
 	isSmall: propTypes.bool,
