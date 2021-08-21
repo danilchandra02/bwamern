@@ -64,7 +64,7 @@ export default function Hero(props) {
 									width="36"
 									height="36"
 									src={IconTreasure}
-									alt={`$formatNumber({props.data.treasures} Treasures`}
+									alt={`$formatNumber({props.data.treasures}) Treasures`}
 								/>
 								<h6 className="mt-3">
 									{formatNumber(props.data.treasures)}{" "}
@@ -79,7 +79,7 @@ export default function Hero(props) {
 									width="36"
 									height="36"
 									src={IconCities}
-									alt={`$formatNumber({props.data.cities} Cities`}
+									alt={`$formatNumber({props.data.cities}) Cities`}
 								/>
 								<h6 className="mt-3">
 									{formatNumber(props.data.cities)}{" "}
