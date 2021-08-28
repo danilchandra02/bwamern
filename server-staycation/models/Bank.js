@@ -3,11 +3,11 @@
 const mongoose = require("mongoose")
 
 const bankSchema = new mongoose.Schema({
-	nameBank: {
+	bankName: {
 		type: String,
 		required: true,
 	},
-	nomorRekening: {
+	accountNumber: {
 		type: Number,
 		required: true,
 	},
@@ -15,7 +15,7 @@ const bankSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	image: {
+	imageUrl: {
 		type: String,
 		required: true,
 	},

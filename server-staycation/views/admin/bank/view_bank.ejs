@@ -9,10 +9,11 @@
                     <%- include('../../partials/navbar.ejs') %>
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
-                            <!-- Page Heading -->
-                            <h1 class="h3 mb-4 text-gray-800">Banks</h1>
-                            <!-- End Heading -->
-                            <%- include('table_bank.ejs') %>
+                            <%- include('../../partials/message.ejs') %>
+                                <!-- Page Heading -->
+                                <h1 class="h3 mb-4 text-gray-800">Banks</h1>
+                                <!-- End Heading -->
+                                <%- include('table_bank.ejs') %>
                         </div>
                         <!-- /.container-fluid -->
                 </div>
@@ -45,5 +46,20 @@
             </div>
         </div>
     </div>
-    <%- include('../../partials/js.ejs') %>
-        <%- include('add_modal.ejs') %>
+    <%- include('add_modal.ejs') %>
+        <%- include('edit_modal.ejs') %>
+            <%- include('../../partials/js.ejs') %>
+                <script>
+                    $("#dataTable").on("click", ".button-update", function () {
+                        let id = $(this).data('id');
+                        let name = $(this).data('name');
+                        let bankName = $(this).data('bankname');
+                        let accountNumber = $(this).data('accountnumber')
+                        console.log(accountNumber + bankName)
+                        $("#edit-modal").modal("show")
+                        $('.id').val(id)
+                        $('.name').val(name)
+                        $('.account-number').val(accountNumber)
+                        $('.bank-name').val(bankName)
+                    })
+                </script>
