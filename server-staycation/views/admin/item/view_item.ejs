@@ -9,7 +9,9 @@
             <%- include('../../partials/navbar.ejs') %>
             <!-- Begin Page Content -->
             <div class="container-fluid">
+                <%- include('../../partials/message.ejs') %>
                 <h1 class="h3 mb-4 text-gray-800">Items</h1>
+                <% if(action =='view') {%>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#show-item" role="tab"
@@ -20,8 +22,20 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <%- include('show_table_item.ejs') %>
-                    <%- include('add_item.ejs')%>
+                    <%- include('add_item.ejs') %>
                 </div>
+                <%} else if(action == "showimage") { %>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#show-image" role="tab"
+                            aria-controls="nav-home" aria-selected="true"> Show Image </a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <%- include('show_image_item.ejs') %>
+                </div>
+                <% } %>
+
                 <!-- Page Heading -->
                 <!-- End Heading -->
             </div>
