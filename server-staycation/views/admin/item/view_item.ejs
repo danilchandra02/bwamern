@@ -34,6 +34,16 @@
                 <div class="tab-content" id="nav-tabContent">
                     <%- include('show_image_item.ejs') %>
                 </div>
+                <% } else { %>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#edit-item" role="tab"
+                            aria-controls="nav-home" aria-selected="true"> Edit Item </a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <%- include('edit_item.ejs') %>
+                </div>
                 <% } %>
 
                 <!-- Page Heading -->
