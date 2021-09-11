@@ -58,7 +58,8 @@
         </div>
     </div>
 </div>
-<%- include('show_modal.ejs') %>
+<%- include('show_modal_feature.ejs') %>
+<%- include('show_modal_activity.ejs') %>
 <%- include('../../../partials/js.ejs') %>
 
 <script>
@@ -70,8 +71,20 @@
     $("#dataTable").on("click", ".button-update", function () {
         let id = $(this).data('id');
         let name = $(this).data('name');
+        let qty = $(this).data('qty');
         $("#edit-feature").modal("show")
         $('.id').val(id)
+        $('.feature-qty').val(qty)
         $('.feature-name').val(name)
+    })
+
+    $("#dataTableActivity").on("click", ".button-update", function () {
+        let id = $(this).data('id');
+        let name = $(this).data('name');
+        let type = $(this).data('type');
+        $("#edit-activity").modal("show")
+        $('.id').val(id)
+        $('.activity-name').val(name)
+        $('.activity-type').val(type)
     })
 </script>

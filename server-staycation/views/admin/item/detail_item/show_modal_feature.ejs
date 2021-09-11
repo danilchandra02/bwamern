@@ -4,16 +4,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Bank</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Feature</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/admin/bank?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/admin/item/update/feature?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control feature-name" name="featureName"
+                        <input type="text" class="form-control feature-name" name="name"
                             placeholder="Enter feature name" required>
                     </div>
                     <div class="form-group">
@@ -29,8 +29,9 @@
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" class="id" name="id">
+                    <input type="hidden" value="<%= itemId %>" name="itemId">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update Bank</button>
+                    <button type="submit" class="btn btn-primary">Update Activity</button>
                 </div>
             </form>
         </div>

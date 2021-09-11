@@ -1,7 +1,7 @@
 /** @format */
 
 const mongoose = require("mongoose")
-const {ObjectId} = mongoose.Schema
+const { ObjectId } = mongoose.Schema
 
 const activitySchema = new mongoose.Schema({
 	name: {
@@ -9,7 +9,7 @@ const activitySchema = new mongoose.Schema({
 		required: true,
 	},
 	type: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	imageUrl: {
@@ -19,12 +19,10 @@ const activitySchema = new mongoose.Schema({
 	isPopular: {
 		type: Boolean,
 	},
-	itemId: [
-		{
-			type: ObjectId,
-			ref: Item,
-		},
-	],
+	itemId: {
+		type: ObjectId,
+		ref: "Item",
+	},
 })
 
 module.exports = mongoose.model("Activity", activitySchema)
