@@ -3,7 +3,12 @@
 const router = require("express").Router()
 const adminController = require("../controllers/adminController")
 const { upload, uploadMultiple } = require("../middlewares/multer")
+const auth = require("../middlewares/auth")
 
+router.get("/signin", adminController.viewSignIn)
+router.post("/signin", adminController.actionSignIn)
+router.use(auth)
+router.get("/logout", adminController.actionLogout)
 router.get("/dashboard", adminController.viewDashboard)
 
 //End point category
